@@ -1,0 +1,13 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+$enable-important-utilities: false;
+
+body {
+  background: linear-gradient($primary, $cyan);
+}
+
+.errorText,
+.editForm {
+  display: none;
+}
