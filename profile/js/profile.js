@@ -1,40 +1,17 @@
-const API_BASE_URL = "https://api.noroff.dev";
+import { API_SOSIAL_URL } from "../../src/js/api/constant-api.mjs";
+import { postData } from "../../src/js/api/posts/create.mjs";
+import { getLocalStorage } from "../../src/js/storage/index.mjs";
 
-const profileUrl = `${API_BASE_URL}/api/v1/social/profiles/Elli`;
-
-// console.log(profileUrl);
-
-async function profileInfo(url) {
-  try {
-    const accessToken = localStorage.getItem("accessToken");
-
-    const profileData = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    };
-
-    const response = await fetch(url, profileData);
-    // console.log("response", response);
-    const data = await response.json();
-    // console.log("data", data);
-
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-// profileInfo(profileUrl);
+const action = "/profiles";
+const user = getLocalStorage("profile").name;
+const method = "GET";
+const profileUrl = `${API_SOSIAL_URL}${action}/${user}`;
 
 const userinfo = document.getElementById("userInfo");
 
-async function loadProfile(data) {
+async function loadProfile(profileUrl, method, data) {
   try {
-    const userData = await profileInfo(data);
-    // userName.innerText = "";
+    const userData = await postData(profileUrl, method, data);
     userinfo.innerText += `${userData.avatar}`;
     userinfo.innerText += `${userData.name}`;
   } catch (error) {
@@ -42,4 +19,4 @@ async function loadProfile(data) {
   }
 }
 
-loadProfile(profileUrl);
+loadProfile(profileUrl, method);
