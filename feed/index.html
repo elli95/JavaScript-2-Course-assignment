@@ -13,10 +13,11 @@
       type="module"
       defer
     ></script>
-    <script src="../feed/js/feed.js" defer type="module"></script>
+    <script src="./index.js" defer type="module"></script>
     <script src="../feed/js/makeAPost.js" defer type="module"></script>
     <script src="../feed/js/search.js" defer type="module"></script>
     <script src="../feed/js/filter.js" defer type="module"></script>
+    <script src="../src/js/api/auth/is-loged-in.mjs" defer type="module"></script>
   </head>
   <body class="min-vh-100">
     <header>
@@ -37,8 +38,8 @@
             <div class="dropdown col-6 d-flex justify-content-center">
               <button class="btn btn-light dropdown-toggle px-5" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item">Newest</a></li>
-                <li><a class="dropdown-item">Oldest</a></li>
+                <li><a class="dropdown-item" id="new-posts">Newest</a></li>
+                <li><a class="dropdown-item" id="old-posts">Oldest</a></li>
                 <li>
                   <a class="dropdown-item" id="popular-posts">Popularity</a>
                 </li>
