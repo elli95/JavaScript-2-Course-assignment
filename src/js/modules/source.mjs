@@ -21,10 +21,10 @@ function postContent(post) {
   const postDate = document.createElement("h5");
 
   listContainer.className = "list-group col";
-  postContainer.className = "list-group-item rounded-3 border border-dark";
+  postContainer.className = "list-group-item rounded-3 border border-dark h-100 min-width post-margin";
   postTitle.className = "col-12 px-2";
   postImg.className = "img-fluid rounded";
-  postBody.className = "col-12 px-2";
+  postBody.className = "col-12 px-2 text-break";
   postTags.className = "col-12 px-2";
 
   userPost.append(listContainer);
@@ -36,12 +36,12 @@ function postContent(post) {
   postContainer.append(dateContainer);
   dateContainer.append(postDate);
 
-  listContainer.querySelector("a").href = `/specific-post.html?id=${post.id}`;
+  listContainer.querySelector("a").href = `/feed/specific-post.html?id=${post.id}`;
   postContainer.querySelector("h2").innerText = `${post.title}`;
   postContainer.querySelector("h3").innerText = `${post.body}`;
   postContainer.querySelector("h4").innerText = `${post.tags}`;
-  // dateContainer.querySelector("h5").innerText = `${newPostDate} ${post._count.reactions}`;
-  dateContainer.querySelector("h5").innerText = `${newPostDate} `;
+  dateContainer.querySelector("h5").innerText = `${newPostDate},  `;
+  dateContainer.querySelector("h5").innerText += ` ${post._count.reactions} Likes`;
   if (post.media !== null) {
     postContainer.querySelector("img").src = `${post.media}`;
   } else {
