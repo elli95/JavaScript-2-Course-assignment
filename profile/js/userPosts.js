@@ -1,52 +1,26 @@
 import { dateSetup } from "../../src/js/modules/source.mjs";
+import { API_SOSIAL_URL } from "../../src/js/api/constant-api.mjs";
+import { postData } from "../../src/js/api/posts/create.mjs";
+import { getLocalStorage } from "../../src/js/storage/index.mjs";
 
-const API_BASE_URL = "https://api.noroff.dev";
+const action = "/profiles";
+const user = getLocalStorage("profile").name;
+const postTrue = "?_posts=true";
+const method = "GET";
+const profileUrl = `${API_SOSIAL_URL}${action}/${user}${postTrue}`;
 
-const profileUrl = `${API_BASE_URL}/api/v1/social/profiles/Elli?_posts=true`;
-
-console.log(profileUrl);
-
-async function profileInfo(url) {
+async function loadPosts(profileUrl, method, data) {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-
-    const profileData = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    };
-
-    const response = await fetch(url, profileData);
-    // console.log("response", response);
-    const data = await response.json();
-    console.log("data", data);
-
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function loadPosts(data) {
-  try {
-    const postInfo = await profileInfo(data);
-    // console.log(postInfo);
+    const postInfo = await postData(profileUrl, method, data);
     Object.values(postInfo.posts).forEach(function (post) {
       postContent(post);
     });
-
-    const editBtn = document.querySelectorAll(".edit-btn");
-    for (let i = 0; i < editBtn.length; i++) {
-      editBtn[i].addEventListener("click", editPost);
-    }
   } catch (error) {
     console.log(error);
   }
 }
 
-loadPosts(profileUrl);
+loadPosts(profileUrl, method);
 
 function postContent(post) {
   let datedate = new Date(post.updated);
@@ -82,9 +56,9 @@ function postContent(post) {
   postContainer.append(dateContainer);
   dateContainer.append(postDate);
 
-  listContainer.querySelector("div").href = `/specific-post.html?id=${post.id}`;
+  // listContainer.querySelector("div").href = `/specific-post.html?id=${post.id}`;
   postContainer.querySelector("h2").innerText = `${post.title}`;
-  postContainer.querySelector("a").href = `/specific-post.html?id=${post.id}`;
+  postContainer.querySelector("a").href = `../profile/editPosts.html?id=${post.id}`;
   postContainer.querySelector("a").innerText = `Edit`;
   postContainer.querySelector("h3").innerText = `${post.body}`;
   postContainer.querySelector("h4").innerText = `${post.tags}`;
@@ -94,25 +68,4 @@ function postContent(post) {
   } else {
     postContainer.querySelector("img").innerText = "NaN";
   }
-}
-
-const deleteBtn = document.querySelector("#delete-btn");
-deleteBtn.addEventListener("click", deletePost);
-
-function editPost() {
-  try {
-    const thisPost = this.attributes[1].value;
-    console.log("helllllo", thisPost);
-    document.getElementById("edit-post-form").style.display = "block";
-    // console.log("helllllo", deletePostBase);
-    return thisPost;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function deletePost(thisPost) {
-  const urlId = await editPost(thisPost);
-  const deletePostBase = `/social/posts/${urlId}`;
-  console.log("NOOOO! Dont delete me :C", deletePostBase);
 }
