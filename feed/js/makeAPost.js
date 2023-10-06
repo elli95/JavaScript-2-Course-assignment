@@ -1,33 +1,5 @@
-import { loadPosts } from "../index.js";
-import { getLocalStorage } from "../../src/js/storage/index.mjs";
-const API_BASE_URL = "https://api.noroff.dev";
-
-const postUrl = `${API_BASE_URL}/api/v1/social/posts`;
-
-// console.log(postUrl);
-
-async function postData(url, data) {
-  try {
-    const accessToken = getLocalStorage("token");
-    console.log("accessToken", accessToken);
-    const postPostData = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify(data),
-    };
-
-    const response = await fetch(url, postPostData);
-    console.log("response", response);
-    const json = await response.json();
-    console.log("data", json);
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { API_SOSIAL_URL } from "../../src/js/api/constant-api.mjs";
+import { postData } from "../../src/js/api/posts/create.mjs";
 
 const postSubmission = document.querySelector("#post-submission");
 const postTitle = document.querySelector("#post-title");
@@ -37,7 +9,7 @@ const postMedia = document.querySelector("#post-media");
 
 postSubmission.addEventListener("submit", formSubmission);
 
-function formSubmission() {
+async function formSubmission() {
   event.preventDefault();
   try {
     const post = {
@@ -47,9 +19,15 @@ function formSubmission() {
       media: postMedia.value,
     };
 
-    console.log("User", post);
+    const action = "/posts";
+    const method = "POST";
+    const postUrl = `${API_SOSIAL_URL}${action}`;
 
-    postData(postUrl, post);
+    const postInfo = await postData(postUrl, method, post);
+
+    // console.log("User", postInfo);
+
+    window.location.replace("../../../../feed/index.html");
   } catch (error) {
     console.log(error);
   }
