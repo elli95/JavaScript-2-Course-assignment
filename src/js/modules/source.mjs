@@ -1,4 +1,3 @@
-// Reference: Date.prototype.toLocaleString()  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
 const dateSetup = {
   day: "numeric",
   month: "long",
