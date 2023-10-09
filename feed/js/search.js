@@ -17,8 +17,9 @@ async function inputContent() {
     const value = searchInput.value.toLowerCase();
     console.log("value", value);
 
+    let result = postInfo.filter((inputText) => inputText.title.toLowerCase().includes(value));
     // let result = postInfo.filter((inputText) => inputText.tags[0].toLowerCase().includes(value));
-    let result = postInfo.filter((inputText) => inputText.title.toLowerCase().includes(value) || inputText.body.toLowerCase().includes(value));
+    // let result = postInfo.filter((inputText) => inputText.title.toLowerCase().includes(value) || inputText.body.toLowerCase().includes(value));
     console.log("search", result);
 
     resultFeedUpdate(result);
