@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thought Alert | Feed</title>
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+    <script src="https://kit.fontawesome.com/b0b0906e7d.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+      type="module"
+      defer
+    ></script>
+    <script src="../src/js/api/auth/user-logged-out.mjs" defer type="module"></script>
+    <script src="./index.js" defer type="module"></script>
+    <script src="../feed/js/makeAPost.js" defer type="module"></script>
+    <script src="../feed/js/search.js" defer type="module"></script>
+    <script src="../feed/js/filter.js" defer type="module"></script>
+  </head>
+  <body class="min-vh-100">
+    <header>
+      <nav class="navbar bg-secondary fixed-top py-1">
+        <div class="container-fluid mx-4 justify-content-evenly">
+          <a class="navbar-brand text-center py-0 text-light" href="../profile/index.html">Profile</a>
+          <a class="navbar-brand text-center py-0 text-light" href="../feed/index.html">Feed</a>
+          <a class="navbar-brand text-center py-0 text-light" id="logout">Logout</a>
+        </div>
+      </nav>
+    </header>
+    <main class="mt-5 mx-2">
+      <section class="container d-flex flex-column col-sm-10 col-xxl-12">
+        <div class="col align-self-center d-flex flex-column">
+          <a href="../feed/index.html" class="display-1 text-reset mb-3 align-self-center">Thought Alert <i class="fa-regular fa-lightbulb"></i></a>
+          <!-- Filter -->
+          <div class="row">
+            <div class="dropdown col-6 d-flex justify-content-center">
+              <button class="btn btn-light dropdown-toggle px-5" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" id="new-posts">Newest</a></li>
+                <li><a class="dropdown-item" id="old-posts">Oldest</a></li>
+                <li>
+                  <a class="dropdown-item" id="popular-posts">Popularity</a>
+                </li>
+              </ul>
+            </div>
+            <!-- search -->
+            <div class="col-6 d-flex">
+              <input type="text" class="form-control rounded-start rounded-0" placeholder="Search" id="search-input" />
+              <button class="btn bg-secondary p-1 rounded-end rounded-0" type="button">
+                <i class="fa-solid fa-magnifying-glass text-light h4 px-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- new post -->
+        <div class="align-self-center mt-4 bg-light py-3 px-5 rounded-3 border border-dark">
+          <form id="post-submission">
+            <div class="form-group row justify-content-center">
+              <h2>Write a new post</h2>
+              <!-- <div class="d-flex flex-column"></div> -->
+              <!-- <label for="post-title" class="fs-3">Post Title</label> -->
+              <input
+                class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
+                type="text"
+                name="post-title"
+                id="post-title"
+                placeholder="Write a post title"
+                required
+              />
+              <!-- </div> -->
+              <!-- <div class="d-flex flex-column"> -->
+              <!-- <label for="post-text">post text</label> -->
+              <textarea
+                class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
+                type="text"
+                name="post-text"
+                id="post-text"
+                cols="60"
+                rows="3"
+                placeholder="Write a new post"
+              ></textarea>
+              <!-- </div> -->
+              <!-- <div class="d-flex flex-column"> -->
+              <!-- <label for="post-tags">post tags</label> -->
+              <input
+                class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
+                type="text"
+                name="post-tags"
+                id="post-tags"
+                placeholder="Write a post tag"
+              />
+              <!-- </div> -->
+              <!-- <a href="#" class="text-reset pt-1"><i class="fa-solid fa-image fs-3"></i></a> -->
+              <input
+                class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
+                type="text"
+                name="post-media"
+                id="post-media"
+                placeholder="Write a img link"
+              />
+
+              <!-- </div> -->
+              <!-- <div class="d-flex flex-column w-50 gap-2 p-2"></div> -->
+              <button type="submit" class="btn btn-success px-5 w-50">Post</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- old post -->
+      <section class="container pt-4 d-flex flex-column align-items-center">
+        <ul class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 px-1" id="userPost"></ul>
+        <button class="m-3 btn btn-light align-self-center px-5 btn-lg">Load more posts</button>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
