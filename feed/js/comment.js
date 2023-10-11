@@ -16,6 +16,13 @@ const commentForm = document.querySelector("#comment-form");
 const commentText = document.querySelector("#comment-text");
 commentForm.addEventListener("submit", formSubmission);
 
+/**
+ * This retrieves the comments for a post
+ * @param {string} profileUrl api url
+ * @param {string} method method used in api call
+ * @param {string} data data that is retrieved
+ */
+
 async function loadComments(url, method, data) {
   try {
     commentPostsSection.innerHTML = "";
@@ -31,18 +38,27 @@ async function loadComments(url, method, data) {
 
 loadComments(commentUrl + getCommentBase, method);
 
+/**
+ * Displays comments on a post
+ * @param {string} comment comments taken from previous api call
+ */
+
 function postComment(comment) {
   const commentContainer = document.createElement("div");
   const commentBody = document.createElement("h2");
 
   commentContainer.className = "list-group col align-items-center";
-  commentBody.className = "card text-center rounded-3 border border-dark col-6 p-2 my-2";
+  commentBody.className = "card text-center rounded-3 border border-dark col-6 p-2 my-2 comment-style text-break";
 
   commentPostsSection.append(commentContainer);
   commentContainer.append(commentBody);
 
   commentContainer.querySelector("h2").innerText = `${comment.body}`;
 }
+
+/**
+ * This allows a user to write a comment on a post
+ */
 
 async function formSubmission() {
   event.preventDefault();

@@ -11855,12 +11855,42 @@ body {
 }
 
 .errorText,
-.editForm {
+.editForm,
+.signup-success {
   display: none;
 }
 
 .min-width {
   min-width: 300px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  clip-path: ellipse(35px 35px at 35px 35px);
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.post-img {
+  max-height: 240px;
+  justify-self: center;
+}
+
+.post-img-id {
+  max-height: 650px;
+  justify-self: center;
+}
+
+.comment-style {
+  width: 100%;
+  min-width: 330px;
+  max-width: 580px;
 }
 
 /*# sourceMappingURL=styles.css.map */

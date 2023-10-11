@@ -11,8 +11,12 @@ oldPosts.addEventListener("click", oldPostFilter);
 
 const action = "/posts";
 const method = "GET";
-const postUrl = `${API_SOSIAL_URL}${action}`;
+const postAuthor = "?_author=true";
+const postUrl = `${API_SOSIAL_URL}${action}${postAuthor}`;
 
+/**
+ * This feature allows you to sort the feed based on popularity
+ */
 async function popularFilter() {
   try {
     const postInfo = await postData(postUrl, method);
@@ -23,6 +27,9 @@ async function popularFilter() {
   }
 }
 
+/**
+ * This feature allows you to sort the feed based on age(new)
+ */
 async function newPostFilter() {
   try {
     const postInfo = await postData(postUrl);
@@ -33,6 +40,9 @@ async function newPostFilter() {
   }
 }
 
+/**
+ * This feature allows you to sort the feed based on age(old)
+ */
 async function oldPostFilter() {
   try {
     const postInfo = await postData(postUrl);
@@ -43,6 +53,10 @@ async function oldPostFilter() {
   }
 }
 
+/**
+ * This function shows the result in the feed page
+ * @param {string} filterPosts The result of the sort (popular/new/old) from one of the other functions
+ */
 function resultFeedUpdate(filterPosts) {
   try {
     userPost.textContent = "";

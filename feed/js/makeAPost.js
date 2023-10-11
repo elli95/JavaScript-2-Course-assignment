@@ -9,6 +9,9 @@ const postMedia = document.querySelector("#post-media");
 
 postSubmission.addEventListener("submit", formSubmission);
 
+/**
+ * This function allows you to create a new post
+ */
 async function formSubmission() {
   event.preventDefault();
   try {

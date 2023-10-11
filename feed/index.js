@@ -5,11 +5,20 @@ import { getLocalStorage } from "../../src/js/storage/index.mjs";
 
 const action = "/posts";
 const method = "GET";
-const apiUrl = API_SOSIAL_URL + action + "?_reactions=true";
+// const apiUrl = API_SOSIAL_URL + action + "?_reactions=true";
 
+const apiUrl = API_SOSIAL_URL + action;
+const postAuthor = "?_author=true";
+
+/**
+ * Here, all posts are fetched via api and displayed on the feed page
+ * @param {string} profileUrl api url
+ * @param {string} method method used in api call
+ * @param {string} data data that is retrieved
+ */
 async function loadPosts(apiUrl, method, data) {
   try {
-    const postInfo = await postData(apiUrl, method, data);
+    const postInfo = await postData(apiUrl + postAuthor, method, data);
     Object.values(postInfo).forEach(function (post) {
       postContent(post);
     });
@@ -19,18 +28,22 @@ async function loadPosts(apiUrl, method, data) {
       likeReaction[i].addEventListener("click", react);
     }
 
-    const allPostData = postInfo.map((data) => {
-      return `${data.id}`;
-    });
-    console.log("postInfo", postInfo);
-    console.log("postInfo", allPostData);
-    return allPostData;
+    // Work in progress, please ignore
+    // const allPostData = postInfo.map((data) => {
+    //   return `${data.id}`;
+    // });
+    // console.log("postInfo", postInfo);
+    // console.log("postInfo", allPostData);
+    // return allPostData;
   } catch (error) {
     console.log(error);
   }
 }
 loadPosts(apiUrl, method);
 
+/**
+ * This will allow users to react to posts, but this is still under construction/not done.
+ */
 async function react() {
   try {
     const postId = await this.id;

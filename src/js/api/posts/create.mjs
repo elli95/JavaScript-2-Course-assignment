@@ -1,5 +1,13 @@
 import { authToken } from "../tokenFetch.mjs";
 
+/**
+ *
+ * @param {string} postUrl api url
+ * @param {string} method method used in api call
+ * @param {string} post data that is retrieved
+ * @returns {string} returns api data based on input (url, method, data)
+ */
+
 async function postData(postUrl, method, post) {
   try {
     console.log("postUrl", postUrl);
