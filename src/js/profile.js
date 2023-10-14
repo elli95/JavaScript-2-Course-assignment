@@ -1,13 +1,12 @@
-import { API_SOSIAL_URL } from "../../src/js/api/constant-api.mjs";
-import { postData } from "../../src/js/api/posts/create.mjs";
-import { getLocalStorage } from "../../src/js/storage/index.mjs";
-import { profileContent } from "../../src/js/modules/source.mjs";
+import { API_SOSIAL_URL } from "./api/constant-api.mjs";
+import { postData } from "./api/posts/apiCall.mjs";
+import { getLocalStorage } from "./localStorage/index.mjs";
+import { profileContent } from "./modules/source.mjs";
 
 const action = "/profiles";
 const user = getLocalStorage("profile").name;
 const method = "GET";
 const profileUrl = `${API_SOSIAL_URL}${action}/${user}`;
-console.log(profileUrl);
 
 /**
  * This gets the data about the user, and helps display it on the html page
@@ -23,7 +22,7 @@ async function loadProfile(profileUrl, method, data) {
     const followingAmount = document.querySelector("#following-amount");
 
     const userData = await postData(profileUrl, method, data);
-    console.log(userData);
+    // console.log(userData);
     profileContent(userData);
 
     postAmount.innerText = `${userData._count.posts}`;

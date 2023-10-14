@@ -1,5 +1,5 @@
-import { API_SOSIAL_URL } from "../../src/js/api/constant-api.mjs";
-import { postData } from "../../src/js/api/posts/create.mjs";
+import { API_SOSIAL_URL } from "../constant-api.mjs";
+import { postData } from "./apiCall.mjs";
 
 const postSubmission = document.querySelector("#post-submission");
 const postTitle = document.querySelector("#post-title");
@@ -28,7 +28,7 @@ async function formSubmission() {
 
     const postInfo = await postData(postUrl, method, post);
 
-    // console.log("User", postInfo);
+    console.log("User", postInfo);
 
     window.location.replace("../../../../feed/index.html");
   } catch (error) {

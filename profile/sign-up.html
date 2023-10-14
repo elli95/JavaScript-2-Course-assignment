@@ -13,7 +13,7 @@
       type="module"
       defer
     ></script>
-    <script src="../src/js/index.mjs" defer type="module"></script>
+    <script src="../src/js/router.mjs" defer type="module"></script>
     <script src="../src/js/handlers/sign-up.mjs" defer type="module"></script>
   </head>
   <body class="min-vh-100 d-flex flex-column justify-content-center">
@@ -65,12 +65,6 @@
             />
           </div>
 
-          <!-- <div class="d-flex flex-column">
-            <label for="password2" class="form-label">Password again</label>
-            <input type="password" name="password2" id="password2" class="form-control" placeholder="Password" required />
-          </div>
-          <h2 class="errorText w-75 text-center" id="password2-error">Passwords must be the same.</h2> -->
-
           <div class="d-flex flex-column">
             <label for="banner" class="form-label">Profile banner</label>
             <input type="url" class="form-control" name="banner" placeholder="https://banner.img.com" />
@@ -93,32 +87,9 @@
         <a href="../" class="btn btn-success">Login</a>
       </section>
     </main>
+    <footer>
+      <p class="text-center mt-4">© Elise Marie Hogsnes | All rights reserved</p>
+      <p></p>
+    </footer>
   </body>
 </html>
-
-<!-- <form class="needs-validation d-flex flex-column align-items-center" id="signUpForm">
-  <div class="d-flex flex-column">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required />
-  </div>
-  <h2 class="errorText w-75 text-center" id="name-error">Please fill in a name.</h2>
-  <div class="d-flex flex-column">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
-  </div>
-  <h2 class="errorText w-75 text-center" id="email-error">Please fill in a valid @noroff.no or @stud.noroff.no e-mail address.</h2>
-  <div class="d-flex flex-column">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required />
-  </div>
-  <h2 class="errorText w-75 text-center" id="password-error">Password must be at least 8 characters long.</h2>
-  <div class="d-flex flex-column">
-    <label for="password2" class="form-label">Password again</label>
-    <input type="password" name="password2" id="password2" class="form-control" placeholder="Password" required />
-  </div>
-  <h2 class="errorText w-75 text-center" id="password2-error">Passwords must be the same.</h2>
-  <div class="d-flex flex-column w-50 gap-2 p-2">
-    <button class="btn btn-success" type="submit">Sign up</button>
-  </div>
-  <h2 class="errorText w-75 text-center" id="error-message">Profile already exists.</h2>
-</form> -->
