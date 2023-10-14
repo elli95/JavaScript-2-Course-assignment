@@ -2,11 +2,13 @@ import { API_SOSIAL_URL } from "../constant-api.mjs";
 
 const action = "/auth/register";
 const method = "POST";
+const errorMessage = document.querySelector("#error-message");
 
 /**
  * This function creates a new user on use
  * @param {string} profile The information used to create a new user
  */
+
 async function signUp(profile) {
   const signUpUrl = API_SOSIAL_URL + action;
   const body = JSON.stringify(profile);
@@ -18,10 +20,14 @@ async function signUp(profile) {
     },
     body,
   });
+  console.log(response);
+
   const data = await response.json();
-  console.log(data);
-  if (data.status) {
-    window.alert(data.errors[0].message);
+
+  if (!response.ok) {
+    errorMessage.innerText = "There was an error: " + data.errors[0].message;
+    errorMessage.style.display = "block";
+    throw new Error(response.status);
   } else {
     const signUpForm = document.querySelector("#signUpForm");
     const signUpSuccess = document.querySelector(".signup-success");

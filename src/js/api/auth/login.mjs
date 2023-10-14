@@ -1,8 +1,9 @@
 import { API_SOSIAL_URL } from "../constant-api.mjs";
-import { setLocalStorage } from "../../storage/index.mjs";
+import { setLocalStorage } from "../../localStorage/index.mjs";
 
 const action = "/auth/login";
 const method = "POST";
+const errorMessage = document.querySelector("#error-message");
 
 /**
  * This function logs in a user
@@ -21,22 +22,16 @@ async function userLogin(profile) {
     body,
   });
   const { accessToken, ...userProfile } = await response.json();
-  userExist(accessToken);
   setLocalStorage("token", accessToken);
   setLocalStorage("profile", userProfile);
-}
 
-/**
- * This function redirects the user or gives an error message
- * @param {string} accessToken security code to verify whether the user has access
- */
-function userExist(accessToken) {
-  const errorMessage = document.querySelector("#error-message");
-  if (accessToken) {
+  if (!response.ok) {
+    errorMessage.innerText = "There was an error: " + userProfile.errors[0].message;
+    errorMessage.style.display = "block";
+    throw new Error(response.status);
+  } else {
     errorMessage.style.display = "none";
     window.location.replace("../../../../profile/index.html");
-  } else {
-    errorMessage.style.display = "block";
   }
 }
 
