@@ -18,12 +18,7 @@ function userEmailValidation(userEmail) {
  * @param {string} inputLength This is the length against which the value is measured
  * @returns {string} True or false, based on the result of the function
  */
-function valueLength(value, inputLength) {
-  if (value.trim().length >= inputLength) {
-    return true;
-  } else {
-    return false;
-  }
-}
+
+const valueLength = (value, inputLength) => value.trim().length >= inputLength;
 
 export { userEmailValidation, valueLength };
