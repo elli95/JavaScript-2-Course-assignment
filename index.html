@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thought Alert | Login</title>
+    <link rel="stylesheet" href="dist/css/styles.css" />
+    <script src="https://kit.fontawesome.com/b0b0906e7d.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+      type="module"
+      defer
+    ></script>
+    <script src="../src/js/router.mjs" defer type="module"></script>
+    <script src="../src/js/handlers/user-login.mjs" defer type="module"></script>
+  </head>
+  <body class="min-vh-100 d-flex flex-column justify-content-center">
+    <main>
+      <section class="d-flex flex-column mb-5 align-items-center">
+        <a href="index.html" class="display-1 text-reset mb-4">Thought Alert <i class="fa-regular fa-lightbulb"></i></a>
+        <!-- <form action="/profile/index.html" class="needs-validation d-flex flex-column align-items-center"> -->
+        <form class="needs-validation d-flex flex-column align-items-center" id="userLoginForm">
+          <div class="d-flex flex-column">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="Email"
+              required
+              pattern="^[\w\-.]+@(stud.)?noroff.no$"
+              title="The email must end with @stud.noroff.no or @noroff.no"
+            />
+          </div>
+
+          <div class="d-flex flex-column">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="Password"
+              required
+              minlength="8"
+              title="Password must be at least 8 characters long."
+            />
+          </div>
+
+          <div class="d-flex flex-column w-50 gap-2 p-2">
+            <button class="btn btn-success" type="submit">Login</button>
+          </div>
+
+          <h2 class="errorText w-75 text-center" id="error-message"></h2>
+        </form>
+        <h2 class="w-75 text-center pt-4">Don't have an account?</h2>
+        <a href="/profile/sign-up.html" class="h2 text-decoration-none text-uppercase fw-bold">Sign up</a>
+      </section>
+    </main>
+    <footer>
+      <p class="text-center mt-4">© Elise Marie Hogsnes | All rights reserved</p>
+      <p></p>
+    </footer>
+  </body>
+</html>

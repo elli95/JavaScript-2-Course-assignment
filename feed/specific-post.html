@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thought Alert | Post</title>
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+    <script src="https://kit.fontawesome.com/b0b0906e7d.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+      type="module"
+      defer
+    ></script>
+    <script src="../src/js/api/auth/logout.js" defer type="module"></script>
+    <script src="../src/js/api/posts/postByID.js" defer type="module"></script>
+    <script src="../src/js/api/posts/comments/comment.js" defer type="module"></script>
+    <script src="../src/js/api/posts/comments/loadComments.mjs" defer type="module"></script>
+  </head>
+  <body class="min-vh-100">
+    <header>
+      <nav class="navbar bg-secondary fixed-top py-1">
+        <div class="container-fluid mx-4 justify-content-evenly">
+          <a class="navbar-brand text-center py-0 text-light" href="../profile/index.html">Profile</a>
+          <a class="navbar-brand text-center py-0 text-light" href="../feed/index.html">Feed</a>
+          <a class="navbar-brand text-center py-0 text-light" id="logout">Logout</a>
+        </div>
+      </nav>
+    </header>
+    <main class="d-flex flex-column align-items-center mt-5 mx-2">
+      <section class="container pt-4 d-flex flex-column align-items-center" id="userPost"></section>
+      <h2 class="errorText w-75 text-center" id="error-message"></h2>
+      <section class="d-flex justify-content-center mt-4 bg-light py-3 px-3 px-md-5 rounded-3 border border-dark w-md-50">
+        <form id="comment-form">
+          <div class="form-group row justify-content-center">
+            <h2>Comment</h2>
+            <div class="d-flex flex-column">
+              <label for="post-text">post text</label>
+              <textarea
+                class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
+                type="text"
+                name="post-text"
+                id="comment-text"
+                cols="60"
+                rows="3"
+                placeholder="Write a new post"
+                required
+              ></textarea>
+            </div>
+            <div class="d-flex flex-column p-2 align-items-center">
+              <button type="submit" class="btn btn-success">Comment</button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section id="comment-posts-section"></section>
+    </main>
+    <footer>
+      <p class="text-center mt-4">© Elise Marie Hogsnes | All rights reserved</p>
+      <p></p>
+    </footer>
+  </body>
+</html>
