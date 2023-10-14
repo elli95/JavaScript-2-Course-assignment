@@ -33,8 +33,6 @@
 This is the JavaScript 2 Course assignment, made during my second year of education at noroff, autumn 2023.
 The design in this assignment is based on my design from the [css framework assignment](https://github.com/elli95/css-frameworks-ca).
 
-<!-- This website shows three pages (Authentication page, Feed Page and Profile page) created using Bootstrap and SASS. -->
-
 To see the development tasks and where in the project I am, please refer to the [Trello](https://trello.com/b/3j7NRiaJ/javascript-2-course-assignment) page
 
 <!-- View the live version [here]() -->
@@ -44,8 +42,10 @@ To see the development tasks and where in the project I am, please refer to the 
 ### Built With
 
 [![My Skills](https://skillicons.dev/icons?i=html)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![My Skills](https://skillicons.dev/icons?i=css)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![My Skills](https://skillicons.dev/icons?i=bootstrap)](https://getbootstrap.com/)
 [![My Skills](https://skillicons.dev/icons?i=scss)](https://sass-lang.com/)
+[![My Skills](https://skillicons.dev/icons?i=js)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,14 +100,14 @@ All image editing was done with [paint.net](https://www.getpaint.net/) and [Fast
 
 All images outside the files within the assignment were taken from [Unsplash](https://unsplash.com/).
 
-img = https://unsplash.com/photos/8Pm_A-OHJGg
-
 [Bootstrap](https://getbootstrap.com/).
 
 Icons were sourced from [Font Awesome](https://fontawesome.com).
 
 Information and inspiration with the creation of the codes came from Noroff's curriculum and various websites linked below.
 
+[JavaScript 2 Course Assignment - Social Media API](https://www.youtube.com/watch?v=rLAGHFr8bvU)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[project-screenshot]: images/css-frameworks-ca.webp
+[project-screenshot]: images/JavaScript-2-CA.webp
