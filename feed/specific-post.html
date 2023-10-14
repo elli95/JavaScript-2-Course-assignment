@@ -13,9 +13,10 @@
       type="module"
       defer
     ></script>
-    <script src="../src/js/api/auth/user-logged-out.mjs" defer type="module"></script>
-    <script src="./js/postByID.js" defer type="module"></script>
-    <script src="./js/comment.js" defer type="module"></script>
+    <script src="../src/js/api/auth/logout.js" defer type="module"></script>
+    <script src="../src/js/api/posts/postByID.js" defer type="module"></script>
+    <script src="../src/js/api/posts/comments/comment.js" defer type="module"></script>
+    <script src="../src/js/api/posts/comments/loadComments.mjs" defer type="module"></script>
   </head>
   <body class="min-vh-100">
     <header>
@@ -29,6 +30,7 @@
     </header>
     <main class="d-flex flex-column align-items-center mt-5 mx-2">
       <section class="container pt-4 d-flex flex-column align-items-center" id="userPost"></section>
+      <h2 class="errorText w-75 text-center" id="error-message"></h2>
       <section class="d-flex justify-content-center mt-4 bg-light py-3 px-3 px-md-5 rounded-3 border border-dark w-md-50">
         <form id="comment-form">
           <div class="form-group row justify-content-center">
@@ -54,5 +56,9 @@
       </section>
       <section id="comment-posts-section"></section>
     </main>
+    <footer>
+      <p class="text-center mt-4">© Elise Marie Hogsnes | All rights reserved</p>
+      <p></p>
+    </footer>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { getLocalStorage } from "../storage/index.mjs";
+import { getLocalStorage } from "../localStorage/index.mjs";
 
 /**
  * This gets the headers used in a api call

@@ -13,7 +13,7 @@
       type="module"
       defer
     ></script>
-    <script src="../src/js/index.mjs" defer type="module"></script>
+    <script src="../src/js/router.mjs" defer type="module"></script>
     <script src="../src/js/handlers/user-login.mjs" defer type="module"></script>
   </head>
   <body class="min-vh-100 d-flex flex-column justify-content-center">
@@ -54,28 +54,15 @@
             <button class="btn btn-success" type="submit">Login</button>
           </div>
 
-          <h2 class="errorText w-75 text-center" id="error-message">Invalid email or password.</h2>
+          <h2 class="errorText w-75 text-center" id="error-message"></h2>
         </form>
         <h2 class="w-75 text-center pt-4">Don't have an account?</h2>
         <a href="/profile/sign-up.html" class="h2 text-decoration-none text-uppercase fw-bold">Sign up</a>
       </section>
     </main>
+    <footer>
+      <p class="text-center mt-4">© Elise Marie Hogsnes | All rights reserved</p>
+      <p></p>
+    </footer>
   </body>
 </html>
-
-<!-- <form class="needs-validation d-flex flex-column align-items-center" id="loginForm">
-  <div class="d-flex flex-column">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
-  </div>
-  <h2 class="errorText w-75 text-center" id="email-error">Please fill in a valid @noroff.no or @stud.noroff.no e-mail address.</h2>
-  <div class="d-flex flex-column">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required />
-  </div>
-  <h2 class="errorText w-75 text-center" id="password-error">Password must be at least 8 characters long.</h2>
-  <div class="d-flex flex-column w-50 gap-2 p-2">
-    <button class="btn btn-success" type="submit">Login</button>
-  </div>
-  <h2 class="errorText w-75 text-center" id="error-message">Invalid email or password.</h2>
-</form> -->

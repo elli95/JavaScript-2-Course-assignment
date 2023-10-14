@@ -73,7 +73,7 @@ function postContent(post) {
     postLink.querySelector("img").innerText = "NaN";
   }
   if (post.author.avatar === null || post.author.avatar === "") {
-    authorContainer.querySelector("img").src = `../../../images/hans-eiskonen-8Pm_A-OHJGg-unsplash.jpg`;
+    authorContainer.querySelector("img").src = `../../../images/hans-eiskonen-8Pm_A-OHJGg-unsplash.webp`;
   }
 }
 
@@ -140,7 +140,7 @@ function postContentID(post) {
     postLink.querySelector("img").innerText = "NaN";
   }
   if (post.author.avatar === null || post.author.avatar === "") {
-    authorContainer.querySelector("img").src = `../../../images/hans-eiskonen-8Pm_A-OHJGg-unsplash.jpg`;
+    authorContainer.querySelector("img").src = `../../../images/hans-eiskonen-8Pm_A-OHJGg-unsplash.webp`;
   }
 }
 
@@ -221,7 +221,6 @@ function userPostsContent(post) {
 
 function profileContent(userData) {
   const userinfo = document.getElementById("userInfo");
-  console.log("dd", userData);
   const profileContainer = document.createElement("div");
   const bannerContainer = document.createElement("div");
   const avatarNameContainer = document.createElement("div");
@@ -248,4 +247,54 @@ function profileContent(userData) {
   avatarNameContainer.querySelector("h1").innerText = `${userData.name}`;
 }
 
-export { dateSetup, postContent, postContentID, userPostsContent, profileContent };
+/**
+ * Displays comments on a post
+ * @param {string} comment comments taken from previous api call
+ */
+
+function postComment(comment) {
+  const commentPostsSection = document.querySelector("#comment-posts-section");
+  const commentContainer = document.createElement("div");
+  const commentBody = document.createElement("h2");
+
+  commentContainer.className = "list-group col align-items-center";
+  commentBody.className = "card text-center rounded-3 border border-dark col-6 p-2 my-2 comment-style text-break";
+
+  commentPostsSection.append(commentContainer);
+  commentContainer.append(commentBody);
+
+  commentContainer.querySelector("h2").innerText = `${comment.body}`;
+}
+
+/**
+ * This function displays the data from the post in a new form, ready for editing
+ * @param {string} post Api data with the data for a post
+ */
+function editPostContentForm(post) {
+  const postTitle = document.querySelector("#post-title");
+  const postText = document.querySelector("#post-text");
+  const postTags = document.querySelector("#post-tags");
+  const postMedia = document.querySelector("#post-media");
+
+  postTitle.value = `${post.title}`;
+  postText.value = `${post.body}`;
+  postTags.value = `${post.tags}`;
+  postMedia.value = `${post.media}`;
+}
+
+/**
+ * This function shows the result in the feed page
+ * @param {string} result The result of the sort (popular/new/old) from one of the other functions
+ */
+function resultFeedUpdate(result) {
+  try {
+    userPost.textContent = "";
+    Object.values(result).forEach(function (post) {
+      postContent(post);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { dateSetup, postContent, postContentID, userPostsContent, profileContent, postComment, editPostContentForm, resultFeedUpdate };

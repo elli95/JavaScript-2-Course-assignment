@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thought Alert | Edit</title>
+    <title>Thought Alert | Edit post</title>
     <link rel="stylesheet" href="../dist/css/styles.css" />
     <script src="https://kit.fontawesome.com/b0b0906e7d.js" crossorigin="anonymous"></script>
     <script
@@ -13,8 +13,10 @@
       type="module"
       defer
     ></script>
-    <script src="../src/js/api/auth/user-logged-out.mjs" defer type="module"></script>
-    <script src="../profile/js/editPost.js" defer type="module"></script>
+    <script src="../src/js/api/auth/logout.js" defer type="module"></script>
+    <script src="../src/js/api/posts/postByID.js" defer type="module"></script>
+    <script src="../src/js/api/posts/postEdit/deletePost.js" defer type="module"></script>
+    <script src="../src/js/api/posts/postEdit/editPost.js" defer type="module"></script>
   </head>
   <body class="min-vh-100">
     <header>
@@ -30,9 +32,7 @@
       <section class="container pt-4 d-flex flex-column align-items-center" id="post-container">
         <form id="post-update-form">
             <div class="form-group row justify-content-center">
-                <h2>Edit this post</h2>
-                <!-- <div class="d-flex flex-column"></div> -->
-                <!-- <label for="post-title" class="fs-3">Post Title</label> -->
+                <h1>Edit this post</h1>
                 <input
                   class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
                   type="text"
@@ -41,9 +41,6 @@
                   placeholder="Write a post title"
                   required
                 />
-                <!-- </div> -->
-                <!-- <div class="d-flex flex-column"> -->
-                <!-- <label for="post-text">post text</label> -->
                 <textarea
                   class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
                   type="text"
@@ -53,9 +50,6 @@
                   rows="3"
                   placeholder="Write a new post"
                 ></textarea>
-                <!-- </div> -->
-                <!-- <div class="d-flex flex-column"> -->
-                <!-- <label for="post-tags">post tags</label> -->
                 <input
                   class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
                   type="text"
@@ -63,8 +57,6 @@
                   id="post-tags"
                   placeholder="Write a post tag"
                 />
-                <!-- </div> -->
-                <!-- <a href="#" class="text-reset pt-1"><i class="fa-solid fa-image fs-3"></i></a> -->
                 <input
                   class="form-control border-start-0 border-end-0 border-1 border-dark rounded-0"
                   type="text"
@@ -80,12 +72,15 @@
           <button class="btn btn-danger" id="post-delete-btn" type="button">Delete</button>
         </div>
       </section>
-      <!-- <section class="align-self-center mt-4 py-3 px-5" id="post-comments"></section> -->
+      
+      <h2 class="errorText w-75 text-center" id="error-message"></h2>
       <section class="d-flex flex-column mt-4 py-3 px-5">
         <h2 class="align-self-center">Post Comments</h2>
-        <div id="post-comments"></div>
-        <!-- <div id="comment-posts-section"></div> -->
+        <div id="comment-posts-section"></div>
       </section>
     </main>
+    <footer>
+      <p class="text-center mt-4">© Elise Marie Hogsnes | All rights reserved<p>
+    </footer>
   </body>
 </html>

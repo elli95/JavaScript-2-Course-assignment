@@ -13,11 +13,12 @@
       type="module"
       defer
     ></script>
-    <script src="../src/js/api/auth/user-logged-out.mjs" defer type="module"></script>
-    <script src="./index.js" defer type="module"></script>
-    <script src="../feed/js/makeAPost.js" defer type="module"></script>
-    <script src="../feed/js/search.js" defer type="module"></script>
-    <script src="../feed/js/filter.js" defer type="module"></script>
+    <script src="../src/js/api/auth/logout.js" defer type="module"></script>
+    <script src="../src/js/feed.js" defer type="module"></script>
+    <script src="../src/js/api/posts/postReact.js" defer type="module"></script>
+    <script src="../src/js/filterSearch/search.js" defer type="module"></script>
+    <script src="../src/js/filterSearch/filter.js" defer type="module"></script>
+    <script src="../src/js/api/posts/newPost.js" defer type="module"></script>
   </head>
   <body class="min-vh-100">
     <header>
@@ -32,7 +33,7 @@
     <main class="mt-5 mx-2">
       <section class="container d-flex flex-column col-sm-10 col-xxl-12">
         <div class="col align-self-center d-flex flex-column">
-          <a href="../feed/index.html" class="display-1 text-reset mb-3 align-self-center">Thought Alert <i class="fa-regular fa-lightbulb"></i></a>
+          <a href="../feed/feed.html" class="display-1 text-reset mb-3 align-self-center">Thought Alert <i class="fa-regular fa-lightbulb"></i></a>
           <!-- Filter -->
           <div class="row">
             <div class="dropdown col-6 d-flex justify-content-center">
@@ -109,11 +110,16 @@
         </div>
       </section>
       <!-- old post -->
+
+      <h2 class="errorText w-75 text-center" id="error-message"></h2>
       <section class="container pt-4 d-flex flex-column align-items-center">
         <ul class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 px-1" id="userPost"></ul>
-        <button class="m-3 btn btn-light align-self-center px-5 btn-lg">Load more posts</button>
+        <!-- <button class="m-3 btn btn-light align-self-center px-5 btn-lg">Load more posts</button> -->
       </section>
     </main>
-    <footer></footer>
+    <footer>
+      <p class="text-center mt-4">© Elise Marie Hogsnes | All rights reserved</p>
+      <p></p>
+    </footer>
   </body>
 </html>

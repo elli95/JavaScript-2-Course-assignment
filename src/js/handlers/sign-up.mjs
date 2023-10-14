@@ -2,7 +2,7 @@
  * This function collects the data from a form (sign up) at submit
  */
 
-import { signUp } from "../api/auth/sign-up.mjs";
+import { signUp } from "../api/auth/registration.mjs";
 
 // Referense https://www.youtube.com/watch?v=rLAGHFr8bvU JavaScript 2 Course Assignment - Social Media API
 

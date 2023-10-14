@@ -2,7 +2,7 @@
  * This function collects the data from a form (login) at submit
  */
 
-import { userLogin } from "../api/auth/user-login.mjs";
+import { userLogin } from "../api/auth/login.mjs";
 
 // Referense https://www.youtube.com/watch?v=rLAGHFr8bvU JavaScript 2 Course Assignment - Social Media API
 
